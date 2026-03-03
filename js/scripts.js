@@ -20,8 +20,6 @@ const irRegistro = document.getElementById('ir-registro');
 const formularioLogin = document.getElementById('formulario-login');
 const loginCorreo = document.getElementById('login-correo');
 const loginPassword = document.getElementById('login-password');
-const mensajeLogin = document.getElementById('mensaje-login'); 
-
 
 // Referencia al span de error del campo confirmar contraseña
 // Es el segundo .mensaje-error de la página, por eso usamos querySelectorAll y tomamos el índice [3]
@@ -119,6 +117,10 @@ mostrarContraseña.addEventListener('change', () => {
     confirmarContrasena.type = mostrarContraseña.checked ? 'text' : 'password';
 });
 
+mostrarContraseñaLogin.addEventListener('change', () => {
+    loginpassword.type = mostrarContraseñaLogin.checked ? 'text' : 'password';
+});
+
 // ─── Navegación entre vistas ─────────────────────────────────────────
 irLogin.addEventListener('click', () => {
     vistaRegistro.style.display = 'none';
@@ -138,10 +140,8 @@ formularioLogin.addEventListener('submit', (e) => {
 
     const usuarioEncontrado = usuarios.find(u => u.email === email && u.password === password);
     if (usuarioEncontrado) {
-        mensajeLogin.textContent = `¡Bienvenido, ${usuarioEncontrado.nombreusuario}!`;
-        mensajeLogin.style.color = 'var(--color-exitoso)';
+        alert ('¡Inicio de sesión exitoso! Bienvenido, ' + usuarioEncontrado.nombreusuario + '.');
     } else {
-        mensajeLogin.textContent = 'Correo o contraseña incorrectos.';
-        mensajeLogin.style.color = 'var(--color-error)';
+        alert('Correo o contraseña incorrectos. Inténtalo de nuevo.');
     }
     });

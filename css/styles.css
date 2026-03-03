@@ -49,7 +49,7 @@ input:focus{
     border-color: var(--color-principal);
 }
 
-input:invalid:not(:placeholder-shown){
+input:invalid:not(:placeholder-shown):not(:focus){
     border-color: var(--color-error);
 }
 .mensaje-error{
@@ -57,7 +57,7 @@ input:invalid:not(:placeholder-shown){
     font-size: 0.75rem;
     display: none;
 }
-input:invalid:not(:placeholder-shown)+.mensaje-error{
+input:invalid:not(:placeholder-shown):not(:focus)+.mensaje-error{
     display: block;
 }
 button{
